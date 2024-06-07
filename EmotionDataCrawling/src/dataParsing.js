@@ -10,8 +10,8 @@ function extractStockDataToJson(filePath, outputJsonPath) {
         .pipe(csv())
         .on('data', (data) => {
             // CSV 파일의 컬럼 이름이 '단축코드'와 '한글 종목명'이라고 가정합니다.
-            const code = data['단축코드'];
-            const name = data['한글 종목명'];
+            const code = data['종목코드'];
+            const name = data['종목명'];
 
             // 필요한 데이터만 추출하여 결과 배열에 추가
             if (code && name) {
@@ -34,7 +34,7 @@ function extractStockDataToJson(filePath, outputJsonPath) {
 }
 
 // 예시로 사용할 CSV 파일 경로와 출력할 JSON 파일 경로
-const filePath = '../financeData.csv';
+const filePath = '../kospi.csv';
 const outputJsonPath = '../result/name.json';
 
 // 함수 호출
